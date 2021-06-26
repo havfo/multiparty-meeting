@@ -108,6 +108,7 @@ const session = expressSession({
 	resave            : true,
 	saveUninitialized : true,
 	store             : new RedisStore({ client: redisClient }),
+	proxy             : config.httpOnly === undefined? false: config.httpOnly,
 	cookie            : {
 		secure   : true,
 		httpOnly : true,
